@@ -1,0 +1,48 @@
+{{ partials.head }}
+
+<div class="wrap index">
+    <div class="photo">
+        <img src="/{{ config.about.photo }}" alt="{{ config.about.name }}" />
+    </div>
+
+    <h1 class="name">{{ config.about.name }}</h1>
+
+    <p class="description">
+        {{ config.about.description }}
+
+        {% if config.jobs %}
+            {% set job = config.jobs | filter(attribute="to", value="present") | first %}
+
+            {% if job %}
+                I'm currently spending my days at 
+                {% if job.url %}
+                    <a href="{{ job.url }}">{{ job.company }}</a>
+                {% else %}
+                    {{ job.company }}
+                {% endif %}.
+            {% endif %}
+        {% endif %}
+
+        {% if config.about.email %}
+            You can get in touch with me via {{ config.about.email }}.
+        {% endif %}
+    </p>
+
+    <ul class="site-links">
+        {% if page.show_cv %}
+            <li><a href="/cv">👔 Résumé</a></li>
+        {% endif %}
+    </ul>
+
+    {% if links %}
+        <h2 class="section-name">Me, elsewhere</h2>
+
+        <ul class="links">
+            {% for link in links %}
+                <li><a href="{{ link.url }}" rel="me">{{ link.label }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+{{ partials.foot }}

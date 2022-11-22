@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="{{ page.accent }}">
+    <title>{{ page.title }}</title>
+    <style>
+        :root {
+            --accent: {{ page.accent }};
+        }
+    </style>
+    {% if config.about.photo %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/{{ config.about.photo }}">
+    <link rel="icon" type="image/{{ config.about.photo | split(pat=".") | last }}" sizes="32x32" href="/{{ config.about.photo }}">
+    <link rel="icon" type="image/{{ config.about.photo | split(pat=".") | last }}" sizes="16x16" href="/{{ config.about.photo }}"> 
+    {% endif %}
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/cv.css">
+</head>
+<body class="page-{{ page.name }}">
