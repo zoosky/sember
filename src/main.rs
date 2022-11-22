@@ -162,7 +162,7 @@ fn build_index(config: &Config) {
 fn build_cv(config: &Config) {
     let html = compile_template("cv", config);
 
-    fs::create_dir_all("./public").unwrap();
+    fs::create_dir_all("./public/cv").unwrap();
     fs::write("./public/cv/index.html", html).unwrap();
 }
 
