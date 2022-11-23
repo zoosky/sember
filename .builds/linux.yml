@@ -1,0 +1,12 @@
+image: alpine/latest
+packages:
+  - curl
+sources:
+  - https://git.sr.ht/~asko/sember
+tasks:
+  - setup: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - build: |
+      cd sember
+      PATH="$HOME/.cargo/bin:$PATH" cargo build --release
+artifacts:
+  - target/release/sember
