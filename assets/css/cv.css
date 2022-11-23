@@ -1,0 +1,199 @@
+.cv .page-title {
+  font-size: 47px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #272727;
+  margin-left: -100px;
+  margin-bottom: 25px;
+}
+
+@media all and (max-width: 685px) {
+  .cv .page-title {
+    line-height: 1.25;
+    margin-left: 0;
+  }
+}
+
+.cv .section-about .photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: -15px;
+  left: -100px;
+}
+
+@media all and (max-width: 685px) {
+  .cv .section-about .photo {
+    position: relative;
+    margin-bottom: 10px;
+    top: 0;
+    left: 0;
+  }
+}
+
+.cv .section-about .photo img {
+  width: 100%;
+  height: auto;
+}
+
+.cv .section-about .name {
+  font-size: 23px;
+  font-weight: 600;
+  color: #111;
+}
+
+.cv .section-about .description {
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.cv .section-about .description p {
+  margin-top: 20px;
+}
+
+.cv .section-about .meta {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cv .section-about .meta .sep {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.cv .section-about .meta a {
+  border-bottom: 1px solid var(--accent);
+}
+
+.cv .section-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #777;
+  margin-top: 75px;
+  margin-bottom: 15px;
+}
+
+.cv .jobs,
+.cv .education {
+  margin: 0;
+  padding: 0;
+}
+
+.cv .jobs::before {
+  display: block;
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  background: #e5e5e5;
+  border-radius: 3px;
+  margin-left: -25px;
+}
+
+@media all and (max-width: 585px) {
+  .cv .jobs::before {
+    margin-left: -20px;
+  }
+}
+
+.cv .job,
+.cv .school {
+  list-style: none;
+  margin-bottom: 75px;
+}
+
+.cv .job::before {
+  display: block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #111;
+  position: absolute;
+  border-radius: 100%;
+  left: -27px;
+  top: 6px;
+}
+
+@media all and (max-width: 585px) {
+  .cv .job::before {
+    left: -22px;
+  }
+}
+
+.cv .job:first-child::before {
+  width: 12px;
+  height: 12px;
+  top: 4px;
+  left: -30px;
+}
+
+@media all and (max-width: 585px) {
+  .cv .job:first-child::before {
+    left: -25px;
+  }
+}
+
+.cv .job:last-child,
+.cv .school:last-child {
+  margin-bottom: 0;
+}
+
+.cv .job .title,
+.cv .school .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #272727;
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+
+.cv .job .title *,
+.cv .school .title * {
+  line-height: 1.25;
+}
+
+.cv .job .meta,
+.cv .school .meta {
+  font-size: 14px;
+  color: #555;
+}
+
+.cv .job .meta .sep,
+.cv .school .meta .sep {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.cv .job .description,
+.cv .school .description {
+  font-size: 15px;
+  font-weight: 500;
+  color: #373737;
+  margin-top: 20px;
+}
+
+
+.cv .job .description p,
+.cv .school .description p {
+  margin-top: 20px;
+} 
+
+.cv .skill {
+  display: inline-block;
+  list-style: none;
+  font-size: 16px;
+  color: #111;
+}
+
+.cv .skill:after {
+  display: inline-block;
+  content: ', ';
+}
+
+.cv .skill:last-child:after {
+  content: '.';
+}

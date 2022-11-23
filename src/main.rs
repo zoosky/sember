@@ -67,6 +67,10 @@ enum TemplateData {
 #[folder = "views/"]
 struct View;
 
+#[derive(RustEmbed)]
+#[folder = "assets/"]
+struct Asset;
+
 fn s(str: &str) -> String {
     return str.to_string();
 }
@@ -166,6 +170,37 @@ fn build_cv(config: &Config) {
     fs::write("./public/cv/index.html", html).unwrap();
 }
 
+fn copy_assets(config: &Config) {
+    // css, fonts, etc
+    fs::create_dir_all("./public/css").unwrap();
+    fs::create_dir_all("./public/fonts").unwrap();
+
+    for asset in Asset::iter() {   
+        // naive solution for checking if we're dealing with a directory,
+        // because I assume only files contain punctuation marks.  
+        if !asset.as_ref().contains(".") {
+            continue;
+        }
+
+        let asset_contents = Asset::get(asset.as_ref()).unwrap();
+
+        if asset.ends_with(".woff") || asset.ends_with(".woff2") {
+            let asset_data = asset_contents.data.as_ref();
+            fs::write(&format!("./public/{}", asset), asset_data).unwrap();
+        } else {
+            let asset_str = std::str::from_utf8(asset_contents.data.as_ref()).unwrap();
+            fs::write(&format!("./public/{}", asset), asset_str).unwrap();
+        }
+    }
+
+    // if the user has a photo, and the file exists, copy that as well
+    let photo = config.about.photo.clone();
+
+    if photo.is_some() && fs::read(photo.as_ref().unwrap()).is_ok() {
+        fs::copy(photo.as_ref().unwrap(), format!("./public/{}", photo.as_ref().unwrap())).unwrap();
+    }
+}
+
 fn main() {
     let config = read_config();
 
@@ -177,4 +212,7 @@ fn main() {
 
     // build cv
     build_cv(&config);
+
+    // copy assets
+    copy_assets(&config);
 }

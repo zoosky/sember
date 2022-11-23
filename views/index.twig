@@ -14,17 +14,12 @@
             {% set job = config.jobs | filter(attribute="to", value="present") | first %}
 
             {% if job %}
-                I'm currently spending my days at 
-                {% if job.url %}
-                    <a href="{{ job.url }}">{{ job.company }}</a>
-                {% else %}
-                    {{ job.company }}
-                {% endif %}.
+                I'm currently spending my days at {% if job.url %}<a href="{{ job.url }}">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}.
             {% endif %}
         {% endif %}
 
         {% if config.about.email %}
-            You can get in touch with me via {{ config.about.email }}.
+            You can get in touch with me via <a href="mailto:{{ config.about.email }}">{{ config.about.email }}</a>.
         {% endif %}
     </p>
 
@@ -34,11 +29,11 @@
         {% endif %}
     </ul>
 
-    {% if links %}
+    {% if config.links %}
         <h2 class="section-name">Me, elsewhere</h2>
 
         <ul class="links">
-            {% for link in links %}
+            {% for link in config.links %}
                 <li><a href="{{ link.url }}" rel="me">{{ link.label }}</a></li>
             {% endfor %}
         </ul>
