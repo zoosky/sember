@@ -8,5 +8,6 @@ tasks:
   - build: |
       cd sember
       PATH="$HOME/.cargo/bin:$PATH" cargo build --release
+      ls -la
 artifacts:
-  - target/release/sember
+  - /home/build/sember
