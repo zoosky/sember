@@ -197,7 +197,10 @@ fn copy_assets(config: &Config) {
     let photo = config.about.photo.clone();
 
     if photo.is_some() && fs::read(photo.as_ref().unwrap()).is_ok() {
-        fs::copy(photo.as_ref().unwrap(), format!("./public/{}", photo.as_ref().unwrap())).unwrap();
+        let from = photo.as_ref().unwrap();
+        let to = format!("./public/{}", photo.as_ref().unwrap());
+
+        fs::copy(from, to).unwrap();
     }
 }
 
