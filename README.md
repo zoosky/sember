@@ -8,5 +8,5 @@ Sember makes some smart decisions for you based on the sember.toml file, such as
 
 You can grab the executable from the last build of each target.
 
-**Linux (x86_64)**
+**Linux (x86_64)**<br>
 [![builds.sr.ht status](https://builds.sr.ht/~asko/sember/commits/master/linux.yml.svg)](https://builds.sr.ht/~asko/sember/commits/master/linux.yml?)
