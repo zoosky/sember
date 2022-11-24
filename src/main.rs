@@ -106,7 +106,7 @@ fn compile_template_partials(name: &str, config: &Config) -> HashMap<String, Str
     let mut partials: HashMap<String, String> = HashMap::new();
 
     for partial in partials_names {
-        let template_contents = View::get(&format!("./partials/{}.twig", partial)).unwrap();
+        let template_contents = View::get(&format!("partials/{}.twig", partial)).unwrap();
         let template_str = std::str::from_utf8(template_contents.data.as_ref()).unwrap();
         
         // create context
@@ -129,7 +129,7 @@ fn compile_template_partials(name: &str, config: &Config) -> HashMap<String, Str
 }
 
 fn compile_template(name: &str, config: &Config) -> String {
-    let template_contents = View::get(&format!("./{}.twig", name)).unwrap();
+    let template_contents = View::get(&format!("{}.twig", name)).unwrap();
     let template_str = std::str::from_utf8(template_contents.data.as_ref()).unwrap();
     
     // create context

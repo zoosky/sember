@@ -3,13 +3,6 @@ name = "sember"
 version = "0.1.0"
 edition = "2021"
 
-[profile.release]
-strip = true  # Automatically strip symbols from the binary.
-opt-level = "z"
-lto = true
-codegen-units = 1
-panic = "abort"
-
 [dependencies]
 toml = "0.4.2"
 serde = { version = "1.0", features = ["derive"] }
