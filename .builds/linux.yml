@@ -1,6 +1,10 @@
 image: alpine/latest
+oauth: pages.sr.ht/PAGES:RW
 packages:
   - curl
+  - hut
+environment:
+  site: asko.srht.site
 sources:
   - https://git.sr.ht/~asko/sember
 tasks:
@@ -8,5 +12,7 @@ tasks:
   - build: |
       cd sember
       PATH="$HOME/.cargo/bin:$PATH" cargo build --release
-artifacts:
-  - /home/build/sember/target/release/sember
+      mv target/release/sember $site/bin/sember/sember-linux
+  - deploy: |
+      tar -C $site -cvz . > site.tar.gz
+      hut pages publish -d $site site.tar.gz
