@@ -12,6 +12,11 @@ tasks:
   - build: |
       cd sember
       PATH="$HOME/.cargo/bin:$PATH" cargo build --release
+      ls -la
+      cd target
+      ls -la
+      cd release
+      ls -la
   - deploy: |
       mkdir $site/bin
       mkdir $site/bin/sember
