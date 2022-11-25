@@ -12,7 +12,10 @@ tasks:
   - build: |
       cd sember
       PATH="$HOME/.cargo/bin:$PATH" cargo build --release
-      mv /home/build/sember/target/release/sember $site/bin/sember/sember-linux
   - deploy: |
+      mkdir $site/bin
+      mkdir $site/bin/sember
+      ls -la
+      mv /home/build/sember/target/release/sember $site/bin/sember/sember-linux
       tar -C $site -cvz . > site.tar.gz
       hut pages publish -d $site site.tar.gz
