@@ -60,6 +60,13 @@ jobs:
         with:
           command: build
           args: --release
+      - name: 'Download Release URL'
+        uses: actions/download-artifact@v2-preview
+        with:
+          name: 'upload_url.txt'
+      - name: 'Set Upload URL Env Var'
+        run: |
+          echo "UPLOAD_URL=$(cat upload_url.txt)" >> $GITHUB_ENV
       - name: "Publish"
         uses: actions/upload-artifact@v2-preview
         with:
@@ -71,7 +78,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          upload_url: ${{steps.create_release.outputs.upload_url}}
+          upload_url: ${{ env.UPLOAD_URL }}
           asset_path: target/release/sember
           asset_name: sember-linux
           asset_content_type: application/octet-stream
