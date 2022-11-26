@@ -16,8 +16,16 @@
     <h3 class="name">{{ config.about.name }}</h3>
 
     <div class="meta">
-      📍 {{ config.about.location }} <span class="sep"></span>
-      ✉️ {{ config.about.email }}
+      {% if config.about.location %}
+        📍 {{ config.about.location }}
+      {% endif %}
+
+      {% if config.about.email %}
+        {% if config.about.location %}
+        <span class="sep"></span>
+        {% endif %}
+        ✉️ <a href="mailto:{{ config.about.email }}">{{ config.about.email }}</a>
+      {% endif %}
     </div>
 
     <div class="description">{{ config.about.description_long }}</div>
