@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$(uname)" == "Darwin" ]; then
+  curl -O -L https://github.com/askonomm/sember/releases/latest/download/sember-macos && \
+  mv sember-macos sember && \
+  chmod +x sember
+else
+  curl -O -L https://github.com/askonomm/sember/releases/latest/download/sember-linux && \
+  mv sember-linux sember && \
+  chmod +x sember
+fi
+
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    -g|--global) global="true"; shift ;;
+  esac
+  shift
+done
+
+if [ "$global" == "true" ]; then
+  sudo mv sember /usr/local/bin/sember
+fi
