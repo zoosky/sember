@@ -17,6 +17,7 @@ struct AboutConfig {
     location: Option<String>,
     description: Option<String>,
     description_long: Option<String>,
+    skills: Option<Vec<String>>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -53,7 +54,6 @@ struct Config {
     links: Option<Vec<LinkConfig>>,
     jobs: Option<Vec<JobConfig>>,
     education: Option<Vec<EducationConfig>>,
-    skills: Option<Vec<String>>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -144,6 +144,14 @@ fn compile_template(name: &str, config: &Config) -> String {
     return template.unwrap();
 }
 
+fn no_config() -> bool {
+    if fs::read("./sember.toml").is_ok() {
+        return false;
+    }
+
+    return true;
+}
+
 /// Reads the `sember.toml` file into a `Config` struct.
 fn read_config() -> Config {
     let config_str = fs::read_to_string("./sember.toml").unwrap_or(String::default());
@@ -205,6 +213,10 @@ fn copy_assets(config: &Config) {
 }
 
 fn main() {
+    if no_config() {
+        panic!("No sember.toml file found. Cannot proceed without it.");
+    }
+
     let config = read_config();
 
     // delete public dir

@@ -86,11 +86,11 @@
     </ul>
   {% endif %}
 
-  {% if config.skills %}
+  {% if config.about.skills %}
     <h2 class="section-title">Skills</h2>
 
     <ul class="skills">
-      {% for skill in config.skills %}
+      {% for skill in config.about.skills %}
         <li class="skill">{{ skill }}</li>
       {% endfor %}
     </ul>
