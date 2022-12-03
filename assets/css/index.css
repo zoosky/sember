@@ -1,26 +1,28 @@
 .index .photo {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    overflow: hidden;
-    margin-left: -15px;
-    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,.1);
+    padding: 25px;
 }
 
 .index .photo img {
-    width: 100%;
+    width: 75px;
     height: auto;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.15);
 }
 
 .index .name {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     color: #111;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .index .description {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: #373737;
 }
@@ -31,14 +33,13 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #777;
-    margin-top: 75px;
     margin-bottom: 15px;
 }
 
 .index .site-links {
     padding: 0;
     margin: 0;
-    margin-top: 25px;
+    left: -3px;
 }
 
 .index .site-links li {
@@ -87,4 +88,80 @@
     color: var(--accent);
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     border: 1px solid var(--accent);
+}
+
+.index .top-section {
+    width: calc(100% + 100px);
+    display: grid;
+    grid-template-columns: 125px auto;
+    background-color: #fff9f3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffd6af' fill-opacity='0.87'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,.125);
+    margin-left: -50px;
+    margin-bottom: 50px;
+}
+
+.index .top-section:before {
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(50deg, #fff 75%, transparent);
+    border-radius: 15px;
+    z-index: 0;
+    position: absolute;
+}
+
+.index .top-section * {
+    z-index: 5;
+}
+
+@media all and (max-width: 615px) {
+    .index .top-section {
+        display: block;
+        width: calc(100% + 50px);
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        margin-left: -25px;
+    }
+
+    .index .top-section:before {
+        background: linear-gradient(50deg, #fff 55%, transparent);
+        border-radius: 0;
+    }
+
+    .index .top-section .photo {
+        display: block;
+        border: 0;
+        padding-bottom: 0;
+    }
+}
+
+.index .contents {
+    padding: 25px;
+}
+
+.index .index-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+
+@media all and (max-width: 615px) {
+    .index .index-links {
+        display: block;
+    }
+
+    .index .index-links .col {
+        margin-bottom: 75px;
+    }
+
+    .index .index-links .col:last-child {
+        margin-bottom: 0;
+    }
 }

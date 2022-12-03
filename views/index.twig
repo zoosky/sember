@@ -1,43 +1,59 @@
 {{ partials.head }}
 
 <div class="wrap index">
-    <div class="photo">
-        <img src="/{{ config.about.photo }}" alt="{{ config.about.name }}" />
+    <div class="top-section">
+        <div class="photo">
+            <img src="/{{ config.about.photo }}" alt="{{ config.about.name }}" />
+        </div>
+
+        <div class="contents">
+            <h1 class="name">{{ config.about.name }}</h1>
+
+            <p class="description">
+                {{ config.about.description }}
+
+                {% if config.jobs %}
+                    {% set job = config.jobs | filter(attribute="to", value="present") | first %}
+
+                    {% if job %}
+                        I'm currently spending my days at {% if job.url %}<a href="{{ job.url }}">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}.
+                    {% endif %}
+                {% endif %}
+
+                {% if config.about.email %}
+                    You can get in touch with me via <a href="mailto:{{ config.about.email }}">{{ config.about.email }}</a>.
+                {% endif %}
+            </p>
+        </div>
     </div>
 
-    <h1 class="name">{{ config.about.name }}</h1>
+    <div class="index-links">
+        <div class="col">
 
-    <p class="description">
-        {{ config.about.description }}
+            <h2 class="section-name">Me, here</h2>
 
-        {% if config.jobs %}
-            {% set job = config.jobs | filter(attribute="to", value="present") | first %}
+            <ul class="site-links">
+                {% if page.show_cv %}
+                    <li><a href="/cv">👔 Résumé</a></li>
+                {% endif %}
+            </ul>
+        
+        </div>
 
-            {% if job %}
-                I'm currently spending my days at {% if job.url %}<a href="{{ job.url }}">{{ job.company }}</a>{% else %}{{ job.company }}{% endif %}.
+        <div class="col">
+
+            {% if config.links %}
+                <h2 class="section-name">Me, elsewhere</h2>
+
+                <ul class="links">
+                    {% for link in config.links %}
+                        <li><a href="{{ link.url }}" rel="me">{{ link.label }}</a></li>
+                    {% endfor %}
+                </ul>
             {% endif %}
-        {% endif %}
 
-        {% if config.about.email %}
-            You can get in touch with me via <a href="mailto:{{ config.about.email }}">{{ config.about.email }}</a>.
-        {% endif %}
-    </p>
-
-    <ul class="site-links">
-        {% if page.show_cv %}
-            <li><a href="/cv">👔 Résumé</a></li>
-        {% endif %}
-    </ul>
-
-    {% if config.links %}
-        <h2 class="section-name">Me, elsewhere</h2>
-
-        <ul class="links">
-            {% for link in config.links %}
-                <li><a href="{{ link.url }}" rel="me">{{ link.label }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        </div>
+    </div>
 </div>
 
 {{ partials.foot }}
